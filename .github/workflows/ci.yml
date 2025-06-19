@@ -25,7 +25,7 @@ jobs:
         run: echo "PATH=$HOME/.local/bin:$PATH" >> $GITHUB_ENV
 
       - name: Install Poetry dependencies
-        run: poetry install --with dev
+        run: poetry install --no-dev --no-root
 
       - name: Run formatter and linter
         run: |
