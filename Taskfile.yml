@@ -2,25 +2,19 @@ version: '3'
 
 tasks:
   format:
-    desc: "Format code with black and isort"
+    desc: "Format code with ruff"
     cmds:
-      - black .
-      - isort .
+      - poetry run ruff format .
 
   lint:
-    desc: "Lint code using Ruff (includes flake8 + more)"
+    desc: "Lint code and auto-fix using Ruff (includes flake8 + more)"
     cmds:
-      - ruff check .
-
-  fix:
-    desc: "Auto-fix lint issues with Ruff"
-    cmds:
-      - ruff check . --fix
+      - poetry run ruff check . --fix
 
   test:
     desc: "Run pytest unit tests"
     cmds:
-      - pytest
+      - poetry run pytest
 
   quality:
     desc: "Run all quality checks"
@@ -38,4 +32,5 @@ tasks:
     desc: "Run task inside Docker"
     cmds:
       - docker run --rm -v $PWD:/app -w /app python:3.11-slim bash -c "pip install poetry && poetry install && poetry run task quality"
+
 

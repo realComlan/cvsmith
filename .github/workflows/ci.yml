@@ -16,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.13'
+          python-version: '3.11'
 
       - name: Install Poetry
         run: curl -sSL https://install.python-poetry.org | python3
@@ -24,12 +24,13 @@ jobs:
       - name: Configure Poetry in PATH
         run: echo "PATH=$HOME/.local/bin:$PATH" >> $GITHUB_ENV
 
+      - name: Install Poetry dependencies
+        run: poetry install --with dev
+
       - name: Run formatter and linter
         run: |
-          poetry run python -m black .
-          poetry run python -m isort .
-          poetry run python -m ruff .
+          poetry run ruff format .
+          poetry run ruff check . --output-format=github
 
       - name: Run tests
         run: poetry run pytest
-

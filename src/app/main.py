@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from ui.interface import demo
 
 app = FastAPI()
+
 
 @app.get("/")
 def read_root():
@@ -11,5 +11,3 @@ def read_root():
 @app.get("/ping")
 def ping():
     return {"status": "ok"}
-
-
