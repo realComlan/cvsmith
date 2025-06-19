@@ -2,6 +2,9 @@ import gradio as gr
 
 
 def job_recommendation_interface(cv_text):
+    """
+    Mock function
+    """
     return f"🧠 Suggested job for: {cv_text[:50]}... => [This will be AI-generated]"
 
 
