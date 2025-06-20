@@ -1,5 +1,6 @@
 FROM python:3.11-slim
 
+WORKDIR /
 
 # Copy pyproject files
 COPY pyproject.toml poetry.lock ./
@@ -18,6 +19,9 @@ RUN poetry config virtualenvs.create false && poetry install --without dev --no-
 COPY ./src/ /src/
 
 WORKDIR /src/
+
+# Fix for module resolution
+ENV PYTHONPATH="/src"
 
 # Start the app
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
