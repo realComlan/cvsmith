@@ -17,7 +17,7 @@ def index():
     """
     Index method.
     """
-    return RedirectResponse(url="/ui")
+    return RedirectResponse(url="/ui", status_code=302)
 
 
 @app.get("/ping")
