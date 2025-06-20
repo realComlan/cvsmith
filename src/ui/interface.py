@@ -1,6 +1,7 @@
 import gradio as gr
-from app.recommender import recommend
 from fastapi.exceptions import HTTPException
+
+from app.recommender import recommend
 
 try:
     with gr.Blocks() as demo:
