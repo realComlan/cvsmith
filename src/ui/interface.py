@@ -1,16 +1,12 @@
 import gradio as gr
+from app.recommender import recommend
 
 
-def job_recommendation_interface(cv_text):
-    """
-    Mock function
-    """
-    return f"🧠 Suggested job for: {cv_text[:50]}... => Not for you!"
+with gr.Blocks() as demo:
+    gr.Markdown("# 🔍 Job CV Assistant")
+    inp = gr.Textbox(label="What is the CV content?")
+    out = gr.Textbox(label="Assistant says:")
+    btn = gr.Button("Ask")
+    btn.click(fn=recommend, inputs=inp, outputs=out)
 
-
-demo = gr.Interface(
-    fn=job_recommendation_interface, inputs="textbox", outputs="textbox"
-)
-
-if __name__ == "__main__":
-    demo.launch()
+demo.launch()
