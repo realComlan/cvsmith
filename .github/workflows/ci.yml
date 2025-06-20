@@ -10,6 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Clean workspace
+        run: |
+          echo "Cleaning workspace..."
+          rm -rf .venv ~/.cache/pypoetry ~/.local/share/pypoetry ~/.virtualenvs
+          echo "Cleanup done."
+
       - name: Checkout code
         uses: actions/checkout@v4
 
@@ -25,7 +31,7 @@ jobs:
         run: echo "PATH=$HOME/.local/bin:$PATH" >> $GITHUB_ENV
 
       - name: Install Poetry dependencies
-        run: poetry install --without dev --no-root
+        run: poetry install --with dev --no-root
 
       - name: Run formatter and linter
         run: |
