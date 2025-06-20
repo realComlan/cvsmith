@@ -1,6 +1,4 @@
-import gradio as gr
 from fastapi import FastAPI
-from app.recommender import recommend
 
 app = FastAPI()
 
