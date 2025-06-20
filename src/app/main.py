@@ -1,14 +1,13 @@
 import gradio as gr
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
+from ui.ui import ui
 
 from app.recommender import recommend
 
 app = FastAPI()
 
-gradio_ui = gr.Interface(
-    fn=recommend, inputs="text", outputs="text", title="Crypto Assistant"
-)
+gradio_ui = ui()
 app = gr.mount_gradio_app(app, gradio_ui, path="/ui")
 
 
