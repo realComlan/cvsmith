@@ -6,8 +6,11 @@ import gradio as gr
 
 app = FastAPI()
 
-gradio_ui = gr.Interface(fn=recommend, inputs="text", outputs="text", title="Crypto Assistant")
+gradio_ui = gr.Interface(
+    fn=recommend, inputs="text", outputs="text", title="Crypto Assistant"
+)
 app = mount_gradio_app(app, gradio_ui, path="/ui")
+
 
 @app.get("/")
 def index():
