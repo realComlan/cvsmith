@@ -3,7 +3,6 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from ui.ui import ui
 
-from app.recommender import recommend
 
 app = FastAPI()
 
