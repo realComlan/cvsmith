@@ -10,12 +10,12 @@ gradio_ui = gr.Interface(
 app = gr.mount_gradio_app(app, gradio_ui, path="/")
 
 
-@app.get("/")
-def index():
-    """
-    Index method.
-    """
-    return {"text": "Welcome"}
+# @app.get("/")
+# def index():
+#     """
+#     Index method.
+#     """
+#     return {"text": "Welcome"}
 
 
 @app.get("/ping")
