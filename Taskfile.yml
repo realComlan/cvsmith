@@ -23,6 +23,11 @@ tasks:
       - task lint
       - task test
 
+  clean_docker:
+    desc: "Clean reclaimable docker images"
+    cmds:
+      - docker image prune -a -f
+
   run:
     desc: "Run the FastAPI app"
     cmds:
