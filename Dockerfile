@@ -18,7 +18,7 @@ ENV PYTHONPATH=/src
 RUN poetry config virtualenvs.create false && poetry install --no-root --no-interaction --no-ansi
 
 # Copy project files
-COPY . .
+COPY ./src/ /src/
 
 # Start the app
-CMD ["uvicorn", "src.app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
