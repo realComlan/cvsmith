@@ -1,8 +1,4 @@
 from fastapi import FastAPI
-from fastapi.responses import RedirectResponse
-from gradio.routes import mount_gradio_app
-from app.recommender import recommend
-import gradio as gr
 
 app = FastAPI()
 
