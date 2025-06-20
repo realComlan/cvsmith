@@ -23,8 +23,5 @@ WORKDIR /src/
 # Fix for module resolution
 ENV PYTHONPATH="/src"
 
-RUN pwd
-RUN ls -la
-
 # Start the app
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
